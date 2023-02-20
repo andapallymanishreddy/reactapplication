@@ -7,6 +7,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.min'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Products from './Products';
 import Countries from './Countries';
+import Countrydetails from './Countrydetails';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
             {
                 path:'/countries',
                 element:<Countries></Countries>
+            },
+            {
+                path:'/countrydetails/:cname',
+                element:<Countrydetails></Countrydetails>
             }
         ]
     }

@@ -44,8 +44,18 @@ function Products(){
         })
         setcart([...temp])
     }
+    
     function decCount(p){
-
+        const temp=cart.map(function(cp){
+            if(cp.title===p.title){
+                cp.count=cp.count-1   
+            }
+        
+            return cp;
+        }).filter((s)=>{
+            return s.count!==0
+        })
+        setcart([...temp])
     }
     return (
         <div className="border border-4 border-info w-100 p-2 m-2 d-flex d  -wrap">
@@ -63,15 +73,15 @@ function Products(){
                         {
                             productincart(p) && (
                                 <>                              
-                                  <button onClick={()=>{decCount(p)}}>-</button >
+                                  <button className="btn btn-outline-secondary" onClick={()=>{decCount(p)}}>-</button >
                                  <b>{Getproductcount(p)}</b>
-                                  <button onClick={()=>{incCount(p)}}>+</button >
+                                  <button className="btn btn-outline-secondary" onClick={()=>{incCount(p)}}>+</button >
                                 </>
 
                             )
                         }
                         {
-                            !productincart(p) && (<button onClick={()=>{addtocart(p)}}>Add to cart</button>)
+                            !productincart(p) && (<button className="btn btn-outline-success" onClick={()=>{addtocart(p)}}>Add to cart</button>)
                         }
 
                         </div>    
